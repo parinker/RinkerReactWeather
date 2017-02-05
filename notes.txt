@@ -1,0 +1,15 @@
+To start:
+
+Open up Git Bash in this folder.
+Type >> node server.js
+
+Open Chrome, go to localhost:3000
+
+# ---------------------------------
+Webpack
+
+npm install -g webpack@1.12.13
+npm install --save react
+npm install --save-dev webpack@1.12.13
+
+webpack -w   # watch files
