@@ -4,10 +4,16 @@ var Nav = require('Nav');
 var Main = (props) => (
   <div>
     <Nav />
-    <h2>Main Component</h2>
-    {props.children}
-    <br /> <br />Weather data provided by <a href="http://openweathermap.org/">OpenWeatherMap</a>.
-    <br /> Geocoding services provided by Google Geocoding API.
+
+    <div className="row">
+      <div className="medium-6 large-4 small-centered">
+        {props.children}
+        <br /> <br />Weather data provided by <a href="http://openweathermap.org/">OpenWeatherMap</a>.
+        <br /> Geocoding services provided by Google Geocoding API.
+      </div>
+    </div>
+
+
   </div>
 )
 
