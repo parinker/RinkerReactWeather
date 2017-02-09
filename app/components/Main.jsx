@@ -6,7 +6,7 @@ var Main = (props) => (
     <Nav />
 
     <div className="row">
-      <div className="medium-6 large-4 small-centered">
+      <div className="medium-8 large-6 small-centered">
         {props.children}
         <br /> <br />Weather data provided by <a href="http://openweathermap.org/">OpenWeatherMap</a>.
         <br /> Geocoding services provided by Google Geocoding API.
