@@ -14,7 +14,7 @@ module.exports = {
     return axios.get(requestUrl).then(function(res) {
 
       if (res.data.status == 'ZERO_RESULTS') {
-        throw new Error(res.data.status);
+        throw new Error('Unable to find that location');
       } else {
 
         var result = res.data.results[0];
@@ -27,7 +27,7 @@ module.exports = {
       }
 
     }, function(err) {
-      throw new Error(err.response.data.status);
+      throw new Error('Unable to find that location');
     });
   }
 }

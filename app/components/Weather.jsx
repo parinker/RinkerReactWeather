@@ -8,13 +8,13 @@ var ErrorModal = require('ErrorModal');
 var Weather = React.createClass({
 
   getInitialState: function() {
-    return {isLoading: false, result: {}, isError: false};
+    return {isLoading: false, result: {}, errorMessage: false};
   },
 
   handleSearch: function(location) {
     var that = this;
 
-    this.setState({isLoading: true, isError: undefined});
+    this.setState({isLoading: true, errorMessage: undefined});
 
     // first, find the lat and long we need
     // I did this because OpenWeatherMap's API is kind of strange when
@@ -22,6 +22,7 @@ var Weather = React.createClass({
     // API is much better for that
     googleGeocoding.getLatLong(location).then(
       function (result) {
+
         //that.setState( {result: result, } );
         that.setState({location: result.addr})
         console.log("Lat ", result.lat, "Long ", result.long)
@@ -31,22 +32,22 @@ var Weather = React.createClass({
           var roundedTemp = Math.round(temp);
           that.setState( {temp: roundedTemp, isLoading: false} );
         }, function(errorMessage) {
-          that.setState({isLoading: false, location: '', temperature: '', isError: errorMessage});
+          that.setState({isLoading: false, location: '', temperature: '', errorMessage: errorMessage.message});
         });
     },
     function(errorMessage) {
-      that.setState({isLoading: false, location: '', temperature: '', isError: errorMessage.message});
+      that.setState({isLoading: false, location: '', temperature: '', errorMessage: errorMessage.message});
     });
   },
 
   render: function() {
 
-    var {isLoading, temp, location, isError} = this.state;
+    var {isLoading, temp, location, errorMessage} = this.state;
 
     function renderError() {
 
-      if (typeof isError == 'string') {
-        return (<ErrorModal />);  // THIS DOESN'T WORK BECAUSE IT'S NOT A STRING
+      if (typeof errorMessage == 'string') {
+        return (<ErrorModal message={errorMessage} />);
       }
 
     }
