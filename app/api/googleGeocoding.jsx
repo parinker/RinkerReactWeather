@@ -14,7 +14,7 @@ module.exports = {
     return axios.get(requestUrl).then(function(res) {
 
       if (res.data.status == 'ZERO_RESULTS') {
-        throw new Error(res.data.message);
+        throw new Error(res.data.status);
       } else {
 
         var result = res.data.results[0];
@@ -27,7 +27,7 @@ module.exports = {
       }
 
     }, function(err) {
-      throw new Error(err.response.data.message);
+      throw new Error(err.response.data.status);
     });
   }
 }

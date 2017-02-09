@@ -31,7 +31,8 @@ module.exports = {
       About: 'app/components/About.jsx',
       Examples: 'app/components/Examples.jsx',
       openWeatherMap: 'app/api/openWeatherMap.jsx',
-      googleGeocoding: 'app/api/googleGeocoding.jsx'
+      googleGeocoding: 'app/api/googleGeocoding.jsx',
+      ErrorModal: 'app/components/ErrorModal.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
