@@ -5,13 +5,14 @@ var Main = require('Main');
 var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
+var appStyles = require('applicationStyles')
 
 // load foundation
 require('style!css!foundation-sites/dist/foundation.min.css');
 $(document).foundation();
 
 // App css
-require('style!css!applicationStyles')
+//require('style!css!sass!applicationStyles')
 
 ReactDOM.render(
   (

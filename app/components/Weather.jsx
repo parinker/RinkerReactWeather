@@ -11,10 +11,30 @@ var Weather = React.createClass({
     return {isLoading: false, result: {}, errorMessage: false};
   },
 
+  // called when user searches in Nav Bar (via componentWillReceiveProps)
+  // or via a link (via componentDidMount)
+  handleIncomingSearch: function(location) {
+    if (location && location.length > 0)  {
+      this.handleSearch(location);
+      window.location.hash = '#/'
+    }
+  },
+
+  componentDidMount: function() {
+    var location = this.props.location.query.search_location;
+    this.handleIncomingSearch(location);
+  },
+
+  componentWillReceiveProps: function(newProps) {
+    var location = newProps.location.query.search_location;
+    this.handleIncomingSearch(location);
+  },
+
   handleSearch: function(location) {
     var that = this;
 
-    this.setState({isLoading: true, errorMessage: undefined});
+    this.setState({isLoading: true, errorMessage: undefined,
+                   location: undefined, temp: undefined});
 
     // first, find the lat and long we need
     // I did this because OpenWeatherMap's API is kind of strange when

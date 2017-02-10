@@ -33,7 +33,7 @@ module.exports = {
       openWeatherMap: 'app/api/openWeatherMap.jsx',
       googleGeocoding: 'app/api/googleGeocoding.jsx',
       ErrorModal: 'app/components/ErrorModal.jsx',
-      applicationStyles: 'app/styles/app.css'
+      applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -47,7 +47,8 @@ module.exports = {
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/
-      }
+      },
+      {loaders: ['style', 'css', 'sass'], test: /\.scss$/ }
     ]
   },
   devtool: 'inline-source-map'
